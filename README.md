@@ -1,2 +1,2 @@
-# Alam_Rincon_Resume_Site
+# My Resume Site
 Resume Front-End implemented using HTML, CSS, JS, React.
