@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.rounded-bottom-end-3{
+    border-bottom-right-radius: 3rem;
+
+}
+
+.navHeader {
+    background-color: rgb(32, 156, 238, 1);
+}
+/* Header css */
+.navbar-brand {
+    font-size: 2rem;
+    color: black;
+    font-family: "Lobster", cursive;
+}
+
+.navbar-brand:hover {
+    color: black;
+}
+
+.nav-link {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+
+.nav-link:hover {
+    color: black;
+
+}
+
+.btn0 {
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.btn0:hover {
+    background-color: rgb(1, 71, 68);
+    transition: 0.5s;
+}
+
+/* Extra css */
+.hw-px{
+    height: 80px;
+    width: 80px;
+}
+
+.nav-hw-px{
+    height: 10%;
+    width: 30%;
+}
+
+.curvyR{
+    border-radius: 5%;
+}
