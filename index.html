@@ -22,12 +22,23 @@
 <body>
     <div id="App">
         <!-- Header section for the navigation bar -->
-        <section id="header" class="text-center row sticky-top bg-dark text-white">
-            <div class="navHeader col-lg-10 rounded-bottom-end-3">
+        <section id="header" class="text-center row sticky-top bg-dark text-white border-bottom border-2">
+            <div class="navHeader col-lg-10 col-md rounded-bottom-end-3 border border-1 border-top-0">
                 <nav class="navbar navbar-expand-lg navbar-expand-md row text-center mx-auto">
-                    <span class="navbar-brand col-lg-4 col-md-2"><img
-                            src="../Alam_Rincon_Resume_Server/Images/profilePic.png" alt="Profile Pic"
-                            class="img-fluid hw-px rounded-circle"><strong> Alam Rincon</strong></span>
+                    <div class="navbar-brand col-lg-4 col-md-2">
+                        <span class="dropdown">
+                            <img src="../Alam_Rincon_Resume_Server/Images/profilePic.jpg" alt="Profile Pic"
+                            class="img-fluid hw-px rounded-circle border border-1 margin-end-n35">
+                            <span class="navbar-owner border border-1 bg-dark text-white rounded-end-3 px-3 dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">Alam Rincon
+                            </span>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Github</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Account Settings</a></li>
+                            </ul>
+                        </span>
+                    </div>
                     <button class="navbar-toggler nav-hw-px mx-auto" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -37,22 +48,22 @@
                     <div class="collapse navbar-collapse col-lg-6" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <h4 class="nav-link" href="#scrollspyHeading1">About Me</h4>
+                                <h4 type="button" class="nav-link" href="#scrollspyHeading1">About Me</h4>
                             </li>
                             <li class="nav-item">
-                                <h4 class="nav-link" href="#scrollspyHeading2">Skills</h4>
+                                <h4 type="button" class="nav-link" href="#scrollspyHeading2">Skills</h4>
                             </li>
                             <li class="nav-item">
-                                <h4 class="nav-link" href="#scrollspyHeading3">Experience</h4>
+                                <h4 type="button" class="nav-link" href="#scrollspyHeading3">Experience</h4>
                             </li>
                             <li class="nav-item">
-                                <h4 class="nav-link" href="#scrollspyHeading4">Educations</h4>
+                                <h4 type="button" class="nav-link" href="#scrollspyHeading4">Educations</h4>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-md">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
                     data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0">
                     <h4 id="scrollspyHeading1">First heading</h4>
@@ -63,11 +74,15 @@
                 </div>
             </div>
         </section>
-        <section id="main">
-
+        <section id="main" class="row bg-dark text-white">
+            <div class="col-lg-3">
+                Hello
+            </div>
+            <div class="col">
+                
+            </div>
         </section>
         <section id="footer">
-
         </section>
     </div>
 </body>

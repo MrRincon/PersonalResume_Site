@@ -10,20 +10,18 @@
 }
 
 .navHeader {
-    background-color: rgb(32, 156, 238, 1);
+    background-color: rgb(11, 54, 83);
 }
 /* Header css */
 .navbar-brand {
     font-size: 2rem;
-    color: black;
     font-family: "Lobster", cursive;
 }
-
-.navbar-brand:hover {
-    color: black;
+.navbar-owner:hover{
+    background-color: rgb(32, 156, 238);
 }
-
 .nav-link {
+    font-size: 25px;
     margin-right: 10px;
     margin-left: 10px;
     color: white;
@@ -31,7 +29,7 @@
 }
 
 .nav-link:hover {
-    color: black;
+    color: rgb(32, 156, 238);
 
 }
 
@@ -46,7 +44,7 @@
 }
 
 .btn0:hover {
-    background-color: rgb(1, 71, 68);
+    background-color: rgb(32, 156, 238);
     transition: 0.5s;
 }
 
@@ -63,4 +61,10 @@
 
 .curvyR{
     border-radius: 5%;
+}
+
+.margin-end-n35{
+    outline: none;
+    margin-right: -25px;
+    position:relative;
 }
