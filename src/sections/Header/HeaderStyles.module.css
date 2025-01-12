@@ -1,0 +1,44 @@
+.roundedBottomEnd3{
+    border-bottom-right-radius: 3rem;
+
+}
+
+.navHeader {
+    background-color: rgb(11, 54, 83);
+}
+
+.navbarBrand {
+    font-size: 2rem;
+    font-family: "Lobster", cursive;
+}
+.navbarOwner:hover{
+    background-color: rgb(32, 156, 238);
+}
+.navLink {
+    font-size: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navLink:hover {
+    color: rgb(32, 156, 238);
+
+}
+
+.nav_hw_px{
+    height: 10%;
+    width: 30%;
+}
+
+/* Hero Character Styling */
+.hw_px{
+    height: 80px;
+    width: 80px;
+}
+.marginEndN15{
+    outline: none;
+    margin-right: -15px;
+    position:relative;
+}
