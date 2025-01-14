@@ -11,8 +11,13 @@
     font-size: 2rem;
     font-family: "Lobster", cursive;
 }
-.navbarOwner:hover{
-    background-color: rgb(32, 156, 238);
+
+.navToggler{
+    background-color: black;
+}
+
+.navToggler:hover {
+    background-color: rgb(205, 237, 218);
 }
 .navLink {
     font-size: 25px;
@@ -23,7 +28,7 @@
 }
 
 .navLink:hover {
-    color: rgb(32, 156, 238);
+    color: rgb(205, 237, 218);
 
 }
 
@@ -32,7 +37,6 @@
     width: 30%;
 }
 
-/* Hero Character Styling */
 .hw_px{
     height: 80px;
     width: 80px;
@@ -41,4 +45,18 @@
     outline: none;
     margin-right: -15px;
     position:relative;
+}
+.marginBottomP45{
+    outline: none;
+    margin-bottom: 45px;
+
+}
+.colorMode{
+
+}
+.colorModeContainer{
+
+}
+.info{
+    color: white;
 }
