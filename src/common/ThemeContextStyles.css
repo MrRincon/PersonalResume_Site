@@ -1,0 +1,13 @@
+:root {
+  --colorOne: rgb(248, 249, 250);
+  --colorTwo: rgb(33, 37, 41);
+  --colorThree: rgb(205, 237, 218);
+  --colorFour: rgb(11, 54, 83);
+}
+
+[data-theme="dark"] {
+  --colorOne: rgb(33, 37, 41);
+  --colorTwo: rgb(248, 249, 250);
+  --colorThree: rgb(11, 54, 83);
+  --colorFour: rgb(205, 237, 218);
+}

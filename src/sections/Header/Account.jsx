@@ -12,33 +12,33 @@ function Account() {
 
   return (
     <div
-      className={`navbar-brand col-lg-4 col-md-2 ${styles.navbarBrand} ${styles.info}`}
+      className={`navbar-brand col-lg-4 col-md-2 ${styles.navbarBrand}`}
     >
       <span className={`dropdown`}>
         <img
-          className={`img-fluid rounded-circle ${styles.marginBottomP45} ${styles.colorMode}`}
+          className={`img-fluid rounded-circle ${styles.themeIcon}`}
           src={themeIcon}
           alt="Color Mode Icon"
           onClick={toggleTheme}
           type="button"
         />
         <img
-          className={`img-fluid rounded-circle border border-1 ${styles.hw_px} ${styles.marginEndN15}`}
+          className={`img-fluid rounded-circle border border-1 ${styles.heroImg}`}
           src={myHeroImg}
           alt="Profile Picture"
         />
         <span
-          className={`border border-1 bg-black rounded-end-3 my-auto px-3 dropdown-toggle ${styles.info}`}
+          className={`border border-1 rounded-end-3 my-auto px-3 dropdown-toggle ${styles.dropdownMenu}`}
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Alam Rincon
         </span>
-        {/* <!-- WORKING HERE --> */}
-        <ul className={`dropdown-menu dropdown-menu-end bg-black`}>
+        <ul className={`dropdown-menu dropdown-menu-end ${styles.dropdownContent}`}>
           <li>
-            <a className={`dropdown-item ${styles.info}`} href="#">
+            {/* <!-- WORKING HERE LATER --> */}
+            <a className={`disabled dropdown-item ${styles.dropdownContent}`} href="#">
               Account Settings
             </a>
           </li>
