@@ -6,111 +6,268 @@ function Projects() {
       className={`col-xl-3 col-lg-4 col-md-6 border-3 border-end ${styles.projects}`}
     >
       <div
-        className={`mx-5 text-center my-5 py-2 border-2 rounded-4 ${styles.projectsContainer}`}
+        className={`my-2 mx-5 text-center my-5 py-2 border-2 rounded-4 ${styles.projectsContainer}`}
       >
-        <span>
+        <div className={`mx-auto mt-2 mb-4`}>
           <h3>
             <strong>Projects</strong>
           </h3>
-        </span>
-        <div className={`accordion`} id="accordionExample">
-          <div className={`accordion-item`}>
-            <h2 className={`accordion-header`}>
+        </div>
+        <div className={`my-2 mx-4 ${styles.projectCards}`} id="customCollapse">
+          <div className="card mb-2">
+            <div className="card-header">
               <button
-                className={`accordion-button`}
+                className="btn btn-link w-100 text-start"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                Accordion Item #1
+                Custom Item #1
               </button>
-            </h2>
+            </div>
             <div
               id="collapseOne"
-              className={`accordion-collapse collapse show`}
-              data-bs-parent="#accordionExample"
+              className="collapse show"
+              data-bs-parent="#customCollapse"
             >
-              <div className={`accordion-body`}>
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                className={``} classes that we use to style each element. These className={``} classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the first item's body content.</strong> You can
+                add scrollable content here using the `style` attribute or
+                Bootstrap utilities. Adjust the height as needed for your
+                design.
               </div>
             </div>
           </div>
-          <div className={`accordion-item`}>
-            <h2 className={`accordion-header`}>
+          <div className="card mb-2">
+            <div className="card-header">
               <button
-                className={`accordion-button collapsed`}
+                className="btn btn-link w-100 text-start"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                Accordion Item #2
+                Custom Item #2
               </button>
-            </h2>
+            </div>
             <div
               id="collapseTwo"
-              className={`accordion-collapse collapse`}
-              data-bs-parent="#accordionExample"
+              className="collapse"
+              data-bs-parent="#customCollapse"
             >
-              <div className={`accordion-body`}>
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate className={``} classes that we use to style each element. These
-                className={``} classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the second item's body content.</strong> Here
+                you can also add scrollable content, such as a long list or
+                detailed descriptions. You can use any HTML content here.
               </div>
             </div>
           </div>
-          <div className={`accordion-item`}>
-            <h2 className={`accordion-header`}>
+          <div className="card mb-2">
+            <div className="card-header">
               <button
-                className={`accordion-button collapsed`}
+                className="btn btn-link w-100 text-start"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#collapseThree"
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                Accordion Item #3
+                Custom Item #3
               </button>
-            </h2>
+            </div>
             <div
               id="collapseThree"
-              className={`accordion-collapse collapse`}
-              data-bs-parent="#accordionExample"
+              className="collapse"
+              data-bs-parent="#customCollapse"
             >
-              <div className={`accordion-body`}>
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate className={``} classes that we use to style each element. These
-                className={``} classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+              </div>
+            </div>
+          </div>
+          <div className="card mb-2">
+            <div className="card-header">
+              <button
+                className="btn btn-link w-100 text-start"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Custom Item #3
+              </button>
+            </div>
+            <div
+              id="collapseThree"
+              className="collapse"
+              data-bs-parent="#customCollapse"
+            >
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+              </div>
+            </div>
+          </div>
+          <div className="card mb-2">
+            <div className="card-header">
+              <button
+                className="btn btn-link w-100 text-start"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Custom Item #3
+              </button>
+            </div>
+            <div
+              id="collapseThree"
+              className="collapse"
+              data-bs-parent="#customCollapse"
+            >
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+              </div>
+            </div>
+          </div>
+          <div className="card mb-2">
+            <div className="card-header">
+              <button
+                className="btn btn-link w-100 text-start"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Custom Item #3
+              </button>
+            </div>
+            <div
+              id="collapseThree"
+              className="collapse"
+              data-bs-parent="#customCollapse"
+            >
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+              </div>
+            </div>
+          </div>
+          <div className="card mb-2">
+            <div className="card-header">
+              <button
+                className="btn btn-link w-100 text-start"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Custom Item #3
+              </button>
+            </div>
+            <div
+              id="collapseThree"
+              className="collapse"
+              data-bs-parent="#customCollapse"
+            >
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+              </div>
+            </div>
+          </div>
+          <div className="card mb-2">
+            <div className="card-header">
+              <button
+                className="btn btn-link w-100 text-start"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Custom Item #3
+              </button>
+            </div>
+            <div
+              id="collapseThree"
+              className="collapse"
+              data-bs-parent="#customCollapse"
+            >
+              <div
+                className={`card-body ${styles.projectCardBody}`}
+              >
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
+                <strong>This is the third item's body content.</strong>{" "}
+                Customize this area as needed. Scrollable content will be
+                constrained to the specified height.
               </div>
             </div>
           </div>
         </div>
-        <div className={`card col-10 mx-auto my-2 ${styles.projectCard}`}></div>
-        <div className={`card col-10 mx-auto my-2 ${styles.projectCard}`}></div>
-        <div className={`card col-10 mx-auto my-2 ${styles.projectCard}`}></div>
       </div>
     </div>
   );
