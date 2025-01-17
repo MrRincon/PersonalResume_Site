@@ -1,16 +1,17 @@
 import styles from "./MainContentStyles.module.css";
+import Projects from "./Projects";
+import Information from "./Information";
 
-function MainContent(){
-    return(
-        <section id="mainContent" className={`row text-white bg-dark`}>
-            <div className={`col-lg-3 border-3 border-end`}>
-                Hello
-            </div>
-            <div id="content" className={`col ${styles.main}`}>
-                again
-            </div>
-        </section>
-    );
+function MainContent() {
+  return (
+    <section
+      id="mainContent"
+      className={`row ${styles.main}`}
+    >
+      <Projects />
+      <Information />
+    </section>
+  );
 }
 
 export default MainContent;

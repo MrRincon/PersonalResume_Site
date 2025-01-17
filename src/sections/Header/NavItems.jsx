@@ -3,7 +3,7 @@ import styles from "./HeaderStyles.module.css";
 function NavItems() {
   return (
     <div
-      className={`scrollspy-example collapse navbar-collapse col-lg-6 ${styles.info}`}
+      className={`scrollspy-example text-center collapse navbar-collapse col-xl-6 ${styles.info}`}
       data-bs-spy="scroll"
       data-bs-target="#navbar-example2"
       data-bs-root-margin="0px 0px -40%"
@@ -11,7 +11,7 @@ function NavItems() {
       data-bs-smooth-scroll="true"
       tabindex="0"
     >
-      <ul className={`navbar-nav mx-auto`}>
+      <ul className={`navbar-nav mx-auto d-flex flex-column flex-md-row justify-content-md-center align-items-md-center`}>
         <li className={`nav-item`}>
           <button
             className={`nav-link ${styles.navLink}`}

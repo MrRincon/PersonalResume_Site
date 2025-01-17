@@ -11,9 +11,7 @@ function Account() {
   const myHeroImg = theme === "light" ? myHeroLight : myHeroDark;
 
   return (
-    <div
-      className={`navbar-brand col-lg-4 col-md-2 ${styles.navbarBrand}`}
-    >
+    <div className={`navbar-brand col-xl-4 col-lg-2 col-md-6 ${styles.navbarBrand}`}>
       <span className={`dropdown`}>
         <img
           className={`img-fluid rounded-circle ${styles.themeIcon}`}
@@ -35,10 +33,15 @@ function Account() {
         >
           Alam Rincon
         </span>
-        <ul className={`dropdown-menu dropdown-menu-end ${styles.dropdownContent}`}>
+        <ul
+          className={`dropdown-menu dropdown-menu-end ${styles.dropdownContent}`}
+        >
           <li>
             {/* <!-- WORKING HERE LATER --> */}
-            <a className={`disabled dropdown-item ${styles.dropdownContent}`} href="#">
+            <a
+              className={`disabled dropdown-item ${styles.dropdownContent}`}
+              href="#"
+            >
               Account Settings
             </a>
           </li>

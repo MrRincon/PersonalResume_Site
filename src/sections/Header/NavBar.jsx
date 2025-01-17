@@ -5,10 +5,10 @@ import NavItems from "./NavItems";
 function NavBar() {
   return (
     <div
-      className={`col-lg-10 col-md border border-1 border-top-0 ${styles.navHeader}`}
+      className={`col-xl-10 col-lg-12 col-md-12 border border-1 border-top-0 ${styles.navHeader}`}
     >
       <nav
-        className={`navbar navbar-expand-lg navbar-expand-md row text-center mx-auto`}
+        className={`navbar navbar-expand-xl navbar-expand-lg row text-center mx-auto`}
       >
         <Account />
         <button
