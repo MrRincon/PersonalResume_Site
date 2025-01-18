@@ -5,6 +5,7 @@
   --colorFour: rgb(11, 54, 83);
   --colorFive: rgb(179, 45, 0);
   --colorSix: rgb(179, 45, 0);
+  --colorSeven: rgb(11, 54, 83);
 }
 
 [data-theme="dark"] {
@@ -14,4 +15,5 @@
   --colorFour: rgb(205, 237, 218);
   --colorFive: rgb(11, 54, 83);
   --colorSix: rgb(205, 237, 218);
+  --colorSeven: rgb(33, 37, 41);
 }

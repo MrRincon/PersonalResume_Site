@@ -26,6 +26,23 @@
     color: var(--colorOne);
 }
 
+.navLink {
+    font-size: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: var(--colorTwo);
+    font-family: 'Rubik', sans-serif;
+}
+
+.navLink:hover {
+    color: var(--colorSix);
+
+}
+
+.info {
+    color: var(--colorTwo);
+}
+
 /* Account CSS */
 .navbarBrand {
     font-size: 2rem;
@@ -57,22 +74,4 @@
 .dropdownContent {
     background-color: var(--colorFour);
     color: var(--colorOne);
-}
-
-/* NavItems CSS */
-.navLink {
-    font-size: 25px;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: var(--colorTwo);
-    font-family: 'Rubik', sans-serif;
-}
-
-.navLink:hover {
-    color: var(--colorSix);
-
-}
-
-.info {
-    color: var(--colorTwo);
 }
