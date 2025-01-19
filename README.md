@@ -1,6 +1,6 @@
 # Alam Rincon Resume
 
-This Front-End part of My resume project is made using HTML, CSS, JSX, React, Vite and Bootstrap
+This Front-End part of My resume project is made using React + Tailwind CSS + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
