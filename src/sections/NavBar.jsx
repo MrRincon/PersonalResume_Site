@@ -3,13 +3,13 @@ import styles from "./sectionStyles.module.css";
 import NavLinks from "./NavLinks";
 import { useTheme } from "../common/ThemeContext";
 
+// const SERVER_URL = "../../../Alam_Rincon_Resume_Server/server.js"
 function NavElements() {
   const ELEMENTS = [
     "Home",
-    "Education",
+    "About Me & Education",
     "Skills",
     "Projects",
-    "About Me",
     "Contact",
   ];
   const NAV = [];

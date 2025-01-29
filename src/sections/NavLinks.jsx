@@ -1,4 +1,6 @@
 import React from "react";
+// Import images from the server side
+// https://alam-rincon-resume-server.onrender.com
 import linkedinIconDark from "../assets/linkedin-dark.svg";
 import linkedinIconLight from "../assets/linkedin-light.svg";
 import githubIconDark from "../assets/github-dark.svg";
@@ -11,7 +13,6 @@ function NavLinks({ theme }) {
   const githubIcon = theme === "light" ? githubIconLight : githubIconDark;
   const linkedinIcon = theme === "light" ? linkedinIconLight : linkedinIconDark;
   const resumeIcon = theme === "light" ? resumeIconLight : resumeIconDark;
-
   const PROFILE = [
     {
       type: "Github",
