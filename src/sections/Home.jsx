@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./sectionStyles.module.css";
-import heroLight from "../assets/myHeroLight.png";
-import heroDark from "../assets/myHeroDark.png";
 import moonIcon from "../assets/moon.svg";
 import sunIcon from "../assets/sun.svg";
 import NavLinks from "./NavLinks";
 import { useTheme } from "../common/ThemeContext";
+const heroLight = "https://alam-rincon-resume-server.onrender.com/myHeroLight.png";
+const heroDark = "https://alam-rincon-resume-server.onrender.com/myHeroDark.png";
 
 function Home() {
   const { theme, toggleTheme } = useTheme();

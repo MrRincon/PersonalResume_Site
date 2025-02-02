@@ -1,7 +1,7 @@
 import React from "react";
 // Import images from the server side
-import employeeMSImage from "../assets/employee-ms.png";
-import bookMSImage from "../assets/admin-dashboard.png";
+const employeeMSImage = "https://alam-rincon-resume-server.onrender.com/employee-ms.png";
+const bookMSImage = "https://alam-rincon-resume-server.onrender.com/admin-dashboard.png";
 
 const projects = [
   {

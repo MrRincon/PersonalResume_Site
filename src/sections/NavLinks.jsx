@@ -1,77 +1,93 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // Import images from the server side
-// https://alam-rincon-resume-server.onrender.com
 import linkedinIconDark from "../assets/linkedin-dark.svg";
 import linkedinIconLight from "../assets/linkedin-light.svg";
 import githubIconDark from "../assets/github-dark.svg";
 import githubIconLight from "../assets/github-light.svg";
 import resumeIconLight from "../assets/resume-light.svg";
 import resumeIconDark from "../assets/resume-dark.svg";
-import CV from "../assets/Alam Rincon CV.pdf";
 
 function NavLinks({ theme }) {
   const githubIcon = theme === "light" ? githubIconLight : githubIconDark;
   const linkedinIcon = theme === "light" ? linkedinIconLight : linkedinIconDark;
   const resumeIcon = theme === "light" ? resumeIconLight : resumeIconDark;
-  const PROFILE = [
-    {
-      type: "Github",
-      link: "https://github.com/MrRincon",
-      img: {
-        src: githubIcon,
-        alt: "Github Icon",
-      },
-    },
-    {
-      type: "Linkedin",
-      link: "https://www.linkedin.com/in/alamrincon/",
-      img: {
-        src: linkedinIcon,
-        alt: "Linkedin Icon",
-      },
-    },
-    {
-      type: "Resume",
-      link: CV,
-      img: {
-        src: resumeIcon,
-        alt: "Resume Icon",
-      },
-    },
-  ];
-  const LINKS = [];
-  let linkIndex = 0;
-  PROFILE.forEach((profile) => {
-    if (profile.type === "Resume") {
-      LINKS.push(
-        <a key={linkIndex} href={`${profile.link}`} download>
-          <img
-            className="w-10 h-10"
-            src={profile.img.src}
-            alt={profile.img.alt}
-          />
-        </a>
-      );
-    } else {
-      LINKS.push(
-        <a
-          key={linkIndex}
-          href={`${profile.link}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            className="w-10 h-10"
-            src={profile.img.src}
-            alt={profile.img.alt}
-          />
-        </a>
-      );
+  const [LINKS, setLinks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    fetch("https://alam-rincon-resume-server.onrender.com/Links")
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
+      })
+      .then((json) => {
+        if (json.length === 0)
+          console.warn("No links received from the server.");
+        setLinks(json);
+        setHasError(false);
+      })
+      .catch((error) => {
+        console.error(`Error fetching the links: ${error}`);
+        setLinks([]);
+        setHasError(true);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading) return <p>Loading links...</p>;
+  if (hasError) return <p>Error loading links. Please try again later.</p>;
+  
+  const ALLLINKS = [];
+  LINKS.forEach((link, index) => {
+    switch (link.type) {
+      case "Resume":
+        ALLLINKS.push(
+          <a key={index} href={`${link.link}`} download>
+            <img
+              className="w-10 h-10"
+              src={resumeIcon}
+              alt={link.img?.alt || "Resume"}
+            />
+          </a>
+        );
+        break;
+      case "Linkedin":
+        ALLLINKS.push(
+          <a
+            key={index}
+            href={`${link.link}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              className="w-10 h-10"
+              src={linkedinIcon}
+              alt={link.img?.alt || "Linkedin"}
+            />
+          </a>
+        );
+        break;
+      case "Github":
+        ALLLINKS.push(
+          <a
+            key={index}
+            href={`${link.link}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              className="w-10 h-10"
+              src={githubIcon}
+              alt={link.img?.alt || "Github"}
+            />
+          </a>
+        );
+        break;
     }
-    linkIndex++;
   });
 
-  return LINKS;
+  return <>{ALLLINKS}</>;
 }
 
 export default NavLinks;

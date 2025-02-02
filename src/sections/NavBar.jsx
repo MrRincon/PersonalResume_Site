@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./sectionStyles.module.css";
 import NavLinks from "./NavLinks";
 import { useTheme } from "../common/ThemeContext";
 
-// const SERVER_URL = "../../../Alam_Rincon_Resume_Server/server.js"
 function NavElements() {
   const ELEMENTS = [
     "Home",
@@ -29,11 +28,44 @@ function NavElements() {
 
 function Navbar() {
   const { theme } = useTheme();
+  const [USER, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    fetch("https://alam-rincon-resume-server.onrender.com/Owner")
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
+      })
+      .then((json) => {
+        if (!json || json.length === 0) {
+          console.warn("No owner data received from the server.");
+          setUser(null);
+          setHasError(true);
+        } else {
+          setUser(json[0]);
+          setHasError(false);
+        }
+      })
+      .catch((error) => {
+        console.error(`Error fetching the Owner: ${error}`);
+        setUser(null);
+        setHasError(true);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
     <nav className={`px-8 md:px-16 lg:px-24 sticky-top ${styles.navBar}`}>
       <div className="container py-2 flex justify-center md:justify-between items-center">
-        <div className="text-2xl font-bold hidden md:inline">Alam Rincon</div>
+        <div className="text-2xl font-bold hidden md:inline">
+          {isLoading
+            ? "Loading..."
+            : hasError
+            ? "Error loading owner."
+            : `${USER.name} ${USER.surname}`}
+        </div>
         <div className="space-x-6">
           <NavElements />
         </div>
@@ -46,6 +78,6 @@ function Navbar() {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

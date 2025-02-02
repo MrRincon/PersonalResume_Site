@@ -1,5 +1,5 @@
 import React from "react";
-import AboutImage from "../assets/myHeroLight.png";
+const AboutImage = "https://alam-rincon-resume-server.onrender.com/myHeroLight.png";
 
 function AboutMe() {
   return (
