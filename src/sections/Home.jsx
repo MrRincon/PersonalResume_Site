@@ -4,8 +4,8 @@ import moonIcon from "../assets/moon.svg";
 import sunIcon from "../assets/sun.svg";
 import NavLinks from "./NavLinks";
 import { useTheme } from "../common/ThemeContext";
-const heroLight = "https://alam-rincon-resume-server.onrender.com/myHeroLight.png";
-const heroDark = "https://alam-rincon-resume-server.onrender.com/myHeroDark.png";
+const heroLight = "https://personalresume-server.onrender.com/myHeroLight.png";
+const heroDark = "https://personalresume-server.onrender.com/myHeroDark.png";
 
 function Home() {
   const { theme, toggleTheme } = useTheme();
