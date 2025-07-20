@@ -16,7 +16,7 @@ function NavLinks({ theme }) {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    fetch("https://alam-rincon-resume-server.onrender.com/Links")
+    fetch("https://personalresume-server.onrender.com/Links")
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();

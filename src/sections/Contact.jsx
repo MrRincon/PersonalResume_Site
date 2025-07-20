@@ -15,7 +15,7 @@ function Contact() {
               Let's Talk
             </h3>
             <p>
-              I'm open to discussing web development prjectgs or partnership
+              I'm open to discussing web development projects or partnership
               opportunities.
             </p>
             <div className="mb-4 mt-8">
@@ -33,7 +33,7 @@ function Contact() {
             </div>
             <div className="mb-4">
               {/* <FaMapMarkedAlt className="inline-block text-green-400 mr-2"></FaMapMarkedAlt> */}
-              <span>sreet, city, pronice, country</span>
+              <span>street, city, country</span>
             </div>
           </div>
           <div className="flex-1 w-full">

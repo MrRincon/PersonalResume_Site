@@ -26,35 +26,8 @@ function NavElements() {
   return NAV;
 }
 
-function Navbar() {
+function Navbar({ USER, isLoading, hasError }) {
   const { theme } = useTheme();
-  const [USER, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
-
-  useEffect(() => {
-    fetch("https://alam-rincon-resume-server.onrender.com/Owner")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-        return res.json();
-      })
-      .then((json) => {
-        if (!json || json.length === 0) {
-          console.warn("No owner data received from the server.");
-          setUser(null);
-          setHasError(true);
-        } else {
-          setUser(json[0]);
-          setHasError(false);
-        }
-      })
-      .catch((error) => {
-        console.error(`Error fetching the Owner: ${error}`);
-        setUser(null);
-        setHasError(true);
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
 
   return (
     <nav className={`px-8 md:px-16 lg:px-24 sticky-top ${styles.navBar}`}>
