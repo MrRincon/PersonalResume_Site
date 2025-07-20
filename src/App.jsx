@@ -40,9 +40,9 @@ function App() {
 
   return (
     <div>
-      <Navbar USER={USER} isLoading={isLoading} hasError={hasError}/>
-      <Home />
-      <AboutMe USER={USER} isLoading={isLoading} hasError={hasError}/>
+      <Navbar USER={USER} isLoading={isLoading} hasError={hasError} />
+      <Home USER={USER} isLoading={isLoading} hasError={hasError} />
+      <AboutMe USER={USER} isLoading={isLoading} hasError={hasError} />
       <Skills />
       <Projects />
       <Contact />

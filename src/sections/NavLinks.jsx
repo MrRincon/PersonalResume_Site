@@ -7,7 +7,8 @@ import githubIconLight from "../assets/github-light.svg";
 import resumeIconLight from "../assets/resume-light.svg";
 import resumeIconDark from "../assets/resume-dark.svg";
 
-function NavLinks({ theme }) {
+function NavLinks({ USER, isLoading, hasError, theme }) {
+  
   const githubIcon = theme === "light" ? githubIconLight : githubIconDark;
   const linkedinIcon = theme === "light" ? linkedinIconLight : linkedinIconDark;
   const resumeIcon = theme === "light" ? resumeIconLight : resumeIconDark;
@@ -16,6 +17,8 @@ function NavLinks({ theme }) {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
+    if (!USER) return;
+
     fetch("https://personalresume-server.onrender.com/Links")
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
@@ -33,7 +36,7 @@ function NavLinks({ theme }) {
         setHasError(true);
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [USER]);
 
   if (isLoading) return <p>Loading links...</p>;
   if (hasError) return <p>Error loading links. Please try again later.</p>;
