@@ -3,7 +3,50 @@ import { useTheme } from "../common/ThemeContext";
 const AboutImage = "https://personalresume-server.onrender.com/myHeroLight.png";
 
 function AboutMe({ USER, isLoading, hasError }) {
-  const { theme } = useTheme();
+
+  const [EDUCATION, setEducation] = useState(null);
+  const [eduLoading, setEduLoading] = useState(true);
+  const [eduError, setEduError] = useState(false);
+
+  useEffect(() => {
+    if (!USER) return;
+
+    fetch(`https://personalresume-server.onrender.com/Education/${USER.education}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
+      })
+      .then((json) => {
+        if (!json) {
+          console.warn("No education data received from the server.");
+          setEducation(null);
+          setEduError(true);
+        } else {
+          setEducation(json);
+          setEduError(false);
+        }
+      })
+      .catch((error) => {
+        console.error(`Error fetching the education: ${error}`);
+        setEducation(null);
+        setEduError(true);
+      })
+      .finally(() => setEduLoading(false));
+  }, [USER]);
+
+  const renderEducation = () => {
+    if (eduLoading) return "Loading...";
+    if (eduError || !EDUCATION) return "Error loading education";
+
+    return (
+      <>
+        <span className="font-medium">{EDUCATION.qualification}</span>
+        Grade: {EDUCATION.grade}<br />
+        Achieved: {EDUCATION.achieved}<br />
+        Institute: {EDUCATION.institute}
+      </>
+    );
+  }; 
 
   return (
     <div className="bg-black text-white py-20" id="aboutme&education">
@@ -25,11 +68,7 @@ function AboutMe({ USER, isLoading, hasError }) {
             </p>
             <div className="mt-8">
               <h3 className="text-2xl font-semibold mb-2">Education</h3>
-              <p className="text-lg">
-                <span className="font-medium">BSc in Computer Science</span><br />
-                Grade: First Class Honours<br />
-                Achieved: July 2025
-              </p>
+              <p className="text-lg">{renderEducation()}</p>
             </div>
           </div>
         </div>
