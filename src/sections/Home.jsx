@@ -4,14 +4,11 @@ import moonIcon from "../assets/moon.svg";
 import sunIcon from "../assets/sun.svg";
 import NavLinks from "./NavLinks";
 import { useTheme } from "../common/ThemeContext";
-const heroLight = "https://personalresume-server.onrender.com/myHeroLight.png";
-const heroDark = "https://personalresume-server.onrender.com/myHeroDark.png";
 
 function Home({ USER, isLoading, hasError }) {
 
   const { theme, toggleTheme } = useTheme();
   const themeIcon = theme === "light" ? sunIcon : moonIcon;
-  const heroImg = theme === "light" ? heroDark : heroLight;
 
   const renderUser = () => {
     if (isLoading) return "Loading...";
@@ -28,17 +25,20 @@ function Home({ USER, isLoading, hasError }) {
     );
   };
 
+  const heroImg = USER?.hero?.[theme]?.link;
+  const heroAlt = USER?.hero?.[theme]?.alt || "Hero Image";
+
   return (
     <div className={`text-center py-16 ${styles.hero}`} id="home">
       <img
         src={heroImg}
-        alt="My Hero Image"
+        alt={heroAlt}
         className="mx-auto mt-4 mb-8 w-48 h-48 rounded-full object-cover transform 
         transition-transform duration-300 hover:scale-105"
       />
       <img
         src={themeIcon}
-        alt=""
+        alt="Toggle Theme"
         className="mx-auto mb-8 w-10 h-10 rounded-full object-cover transform 
         transition-transform duration-300 hover:scale-105"
         onClick={toggleTheme}

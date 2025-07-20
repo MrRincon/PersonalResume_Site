@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "../common/ThemeContext";
-const AboutImage = "https://personalresume-server.onrender.com/myHeroLight.png";
 
 function AboutMe({ USER, isLoading, hasError }) {
 
+  const { theme, toggleTheme } = useTheme();
   const [EDUCATION, setEducation] = useState(null);
   const [eduLoading, setEduLoading] = useState(true);
   const [eduError, setEduError] = useState(false);
@@ -34,6 +34,9 @@ function AboutMe({ USER, isLoading, hasError }) {
       .finally(() => setEduLoading(false));
   }, [USER]);
 
+  const AboutImg = USER?.hero?.[theme]?.link;
+  const AboutImgAlt = USER?.hero?.[theme]?.alt || "Hero Image";
+
   const renderEducation = () => {
     if (eduLoading) return "Loading...";
     if (eduError || !EDUCATION) return "Error loading education";
@@ -54,8 +57,8 @@ function AboutMe({ USER, isLoading, hasError }) {
         <h2 className="text-4xl font-bold text-center mb-12">About Me</h2>
         <div className="flex flex-col md:flex-row items-center md:space-x-12">
           <img
-            src={AboutImage}
-            alt=""
+            src={AboutImg}
+            alt={AboutImgAlt}
             className="w-72 h-80 rounded object-cover mb-8 md:mb-0"
           />
           <div className="flex-1">
