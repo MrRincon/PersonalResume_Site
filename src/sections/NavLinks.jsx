@@ -7,19 +7,19 @@ import githubIconLight from "../assets/github-light.svg";
 import resumeIconLight from "../assets/resume-light.svg";
 import resumeIconDark from "../assets/resume-dark.svg";
 
-function NavLinks({ USER, isLoading, hasError, theme }) {
+function NavLinks({ USER, theme }) {
   
   const githubIcon = theme === "light" ? githubIconLight : githubIconDark;
   const linkedinIcon = theme === "light" ? linkedinIconLight : linkedinIconDark;
   const resumeIcon = theme === "light" ? resumeIconLight : resumeIconDark;
   const [LINKS, setLinks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  const [LinkLoading, setLinksLoading] = useState(true);
+  const [LinkError, setLinksError] = useState(false);
 
   useEffect(() => {
     if (!USER) return;
 
-    fetch("https://personalresume-server.onrender.com/Links")
+    fetch(`https://personalresume-server.onrender.com/Links/${USER.id}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
@@ -28,18 +28,18 @@ function NavLinks({ USER, isLoading, hasError, theme }) {
         if (json.length === 0)
           console.warn("No links received from the server.");
         setLinks(json);
-        setHasError(false);
+        setLinksError(false);
       })
       .catch((error) => {
         console.error(`Error fetching the links: ${error}`);
         setLinks([]);
-        setHasError(true);
+        setLinksError(true);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => setLinksLoading(false));
   }, [USER]);
 
-  if (isLoading) return <p>Loading links...</p>;
-  if (hasError) return <p>Error loading links. Please try again later.</p>;
+  if (LinkLoading) return <p>Loading links...</p>;
+  if (LinkError) return <p>Error loading links. Please try again later.</p>;
   
   const ALLLINKS = [];
   LINKS.forEach((link, index) => {
