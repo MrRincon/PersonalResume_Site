@@ -43,7 +43,7 @@ function App() {
       <Navbar USER={USER} isLoading={isLoading} hasError={hasError} />
       <Home USER={USER} isLoading={isLoading} hasError={hasError} />
       <AboutMe USER={USER} isLoading={isLoading} hasError={hasError} />
-      <Skills />
+      <Skills USER={USER} isLoading={isLoading} hasError={hasError} />
       <Projects />
       <Contact />
       <Footer />
