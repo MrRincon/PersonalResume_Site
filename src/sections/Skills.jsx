@@ -1,39 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useTheme } from "../common/ThemeContext";
 
-const skills = [
-  {
-    id: 1,
-    title: "Web Design",
-    description: "Creating visually appealing and user-friendly web designs.",
-  },
-  {
-    id: 2,
-    title: "Frontend Development",
-    description: "Building responsive and interactive user interfaces.",
-  },
-  {
-    id: 3,
-    title: "Backend Development",
-    description: "Developing robust server-side logic and databases.",
-  },
-  {
-    id: 4,
-    title: "Full-Stack Development",
-    description: "Combining both frontend and backend development skills.",
-  },
-  {
-    id: 5,
-    title: "Content Writing",
-    description: "Writing content for your business and companies.",
-  },
-  {
-    id: 6,
-    title: "Digital Marketing",
-    description: "Promote your business with our digital marketing team.",
-  },
-];
-function Skills({ USER, isLoading, hasError }) {
+function Skills({ USER }) {
 
   const [SKILLS, setSkills] = useState([]);
   const [SkillsLoading, setSkillsLoading] = useState(true);
@@ -65,43 +32,82 @@ function Skills({ USER, isLoading, hasError }) {
   if (SkillsLoading) return <p>Loading skills...</p>;
   if (SkillsError) return <p>Error loading skills. Please try again later.</p>;
 
-  const ALLSKILLS = [];
-  SKILLS.forEach((skill, index) => {
+  const groupedSkills = SKILLS.reduce((accumulator, skill) => {
+    if (!accumulator[skill.type]) accumulator[skill.type] = [];
+    accumulator[skill.type].push(skill);
+    return accumulator;
+  }, {});
 
-  });
+  const groupByValidSubtype = (skills) => {
+    const withSubtype = {};
+    const noSubtype = [];
+
+    for (const skill of skills) {
+      if (skill.subtype && skill.subtype !== "None") {
+        if (!withSubtype[skill.subtype]) withSubtype[skill.subtype] = [];
+        withSubtype[skill.subtype].push(skill);
+      } else {
+        noSubtype.push(skill);
+      }
+    }
+
+    return { withSubtype, noSubtype };
+  };
 
   return (
     <div className="bg-black text-white py-20" id="skills">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <h2 className="text-4xl font-bold text-center mb-12">My Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skills) => (
-            <div
-              key={skills.id}
-              className="bg-gray-800 px-6 pb-6 rounded-lg hover:shadow-lg transform 
-              transition-transform duration-300 hover:scale-105"
-            >
+        <div className="flex overflow-x-auto space-x-6 pb-4 px-2 snap-x snap-mandatory">
+          {Object.entries(groupedSkills).map(([type, skills]) => {
+            const { withSubtype, noSubtype } = groupByValidSubtype(skills);
+
+            return (
               <div
-                className="text-right text-2xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-green-600 to-blue-400"
+                key={type}
+                className="snap-start min-w-[300px] max-w-sm flex-shrink-0 bg-gray-800 rounded-xl p-6 shadow-lg"
               >
-                {skills.id}
+                <h3 className="text-xl font-semibold text-green-400 mb-4">
+                  {type}
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-200 mb-4">
+                  {noSubtype.map((skill) => (
+                    <li key={skill.id} className="flex items-center gap-2">
+                      {/* {skill.img?.src && (
+                        <img
+                          src={skill.img.src}
+                          alt={skill.img.alt || skill.skill}
+                          className="w-5 h-5 object-contain"
+                        />
+                      )} */}
+                      <span>{skill.skill}</span>
+                    </li>
+                  ))}
+                </ul>
+                {Object.entries(withSubtype).map(([subtype, subSkills]) => (
+                  <div key={subtype} className="mb-4">
+                    <h4 className="text-sm font-medium text-gray-400 mb-2">
+                      {subtype}
+                    </h4>
+                    <ul className="space-y-1 text-sm text-gray-200">
+                      {subSkills.map((skill) => (
+                        <li key={skill.id} className="flex items-center gap-2">
+                          {/* {skill.img?.src && (
+                            <img
+                              src={skill.img.src}
+                              alt={skill.img.alt || skill.skill}
+                              className="w-5 h-5 object-contain"
+                            />
+                          )} */}
+                          <span>{skill.skill}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-              <h3
-                className="mt-2 text-2xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-green-400 to-blue-500"
-              >
-                {skills.title}
-              </h3>
-              <p className="mt-2 text-gray-300">{skills.description}</p>
-              <a
-                href="#"
-                className="mt-4 inline-block text-green-400 hover:text-blue-500"
-              >
-                Read More
-              </a>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
