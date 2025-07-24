@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Import images from the server side
 const employeeMSImage = "https://personalresume-server.onrender.com/employee-ms.png";
 const bookMSImage = "https://personalresume-server.onrender.com/admin-dashboard.png";
+
 
 const projects = [
   {
@@ -27,7 +28,36 @@ const projects = [
   },
 ];
 
-function Projects() {
+function Projects({ USER }) {
+
+  const [PROJECTS, setProjects] = useState([]);
+  const [ProjectsLoading, setProjectsLoading] = useState(true);
+  const [ProjectsError, setProjectsError] = useState(false);
+
+  useEffect(() =>{
+    if (!USER) return; 
+
+    fetch(`https://personalresume-server.onrender.com/Projects/${USER.id}`)
+      .then((res) =>{
+        console.log(res);
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
+      })
+      .then((json) => {
+        if (json.length === 0);
+          console.warn(`No projects received from the server.`);
+        setProjects(json);
+        setProjectsError(false);
+      })
+      .catch((error) => {
+        console.error(`Error fetching the projects: ${error}`);
+        setProjects([]);
+        setProjectsError(true);
+      })
+      .finally(() => setProjectsLoading(false));
+  }, [USER]);
+
+  
   return (
     <div className="bg-black text-white py-20" id="projects">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
