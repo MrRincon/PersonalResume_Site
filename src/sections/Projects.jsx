@@ -47,16 +47,25 @@ function Projects({ USER }) {
               <p className="mb-1"><strong>Status:</strong> {project.status}</p>
               <p className="mb-4"><strong>Main Language:</strong> {project.mainpl}</p>
               <div className="flex flex-wrap gap-2 mb-2">
-                {project.links.github && (
+                {project.links.github && project.links.github.includes("github.io") ? (
+                  <a
+                    href={project.links.github}
+                    className="bg-gradient-to-r from-indigo-400 to-pink-500 text-white px-4 py-2 rounded-full"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub Page
+                  </a>
+                ) : project.links.github && project.links.github.includes("github.com") ? (
                   <a
                     href={project.links.github}
                     className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub
+                    GitHub Repo
                   </a>
-                )}
+                ) : null}
                 {project.links["front-end"] && project.links["front-end"] !== "" && (
                   <a
                     href={project.links["front-end"]}
@@ -64,7 +73,7 @@ function Projects({ USER }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Front-End
+                    Front-End Repo
                   </a>
                 )}
                 {project.links["back-end"] && project.links["back-end"] !== "" && (
@@ -74,7 +83,7 @@ function Projects({ USER }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Back-End
+                    Back-End Repo
                   </a>
                 )}
               </div>
