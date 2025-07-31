@@ -44,7 +44,7 @@ function App() {
       <Home USER={USER} isLoading={isLoading} hasError={hasError} />
       <AboutMe USER={USER} isLoading={isLoading} hasError={hasError} />
       <Skills USER={USER} />
-      <Projects />
+      <Projects USER={USER} />
       <Contact />
       <Footer />
     </div>

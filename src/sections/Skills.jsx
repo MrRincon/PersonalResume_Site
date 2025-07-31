@@ -9,7 +9,7 @@ function Skills({ USER }) {
   useEffect(() => {
     if (!USER) return;
 
-    fetch(`https://personalresume-server.onrender.com/Skills/${USER.id}`)
+    fetch(`https://personalresume-server.onrender.com/Skills/${USER._id}`)
       .then((res) => {
         console.log(res);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);

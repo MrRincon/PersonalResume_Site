@@ -11,8 +11,9 @@ function AboutMe({ USER, isLoading, hasError }) {
   useEffect(() => {
     if (!USER) return;
 
-    fetch(`https://personalresume-server.onrender.com/Education/${USER.education}`)
+    fetch(`https://personalresume-server.onrender.com/Education/${USER.education[0]}`)
       .then((res) => {
+        console.log(USER.education[0]);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })
@@ -43,7 +44,7 @@ function AboutMe({ USER, isLoading, hasError }) {
 
     return (
       <>
-        <span className="font-medium">{EDUCATION.qualification}</span>
+        <span className="font-medium">{EDUCATION.qualification}</span><br />
         Grade: {EDUCATION.grade}<br />
         Achieved: {EDUCATION.achieved}<br />
         Institute: {EDUCATION.institute}
