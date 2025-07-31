@@ -46,7 +46,7 @@ function App() {
       <Skills USER={USER} />
       <Projects USER={USER} />
       <Contact />
-      <Footer />
+      <Footer USER={USER} isLoading={isLoading} hasError={hasError} />
     </div>
   );
 }

@@ -13,7 +13,6 @@ function AboutMe({ USER, isLoading, hasError }) {
 
     fetch(`https://personalresume-server.onrender.com/Education/${USER.education[0]}`)
       .then((res) => {
-        console.log(USER.education[0]);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })

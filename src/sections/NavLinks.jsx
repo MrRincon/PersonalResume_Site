@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// Import images from the server side
 import linkedinIconDark from "../assets/linkedin-dark.svg";
 import linkedinIconLight from "../assets/linkedin-light.svg";
 import githubIconDark from "../assets/github-dark.svg";
