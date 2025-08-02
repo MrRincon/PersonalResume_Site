@@ -45,7 +45,7 @@ function App() {
       <AboutMe USER={USER} isLoading={isLoading} hasError={hasError} />
       <Skills USER={USER} />
       <Projects USER={USER} />
-      <Contact />
+      <Contact USER={USER} />
       <Footer USER={USER} isLoading={isLoading} hasError={hasError} />
     </div>
   );

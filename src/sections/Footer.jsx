@@ -1,4 +1,4 @@
-import React, { useEffec, useState } from "react";
+import React from "react";
 
 function Footer({ USER, isLoading, hasError }) {
 
@@ -8,7 +8,7 @@ function Footer({ USER, isLoading, hasError }) {
 
     return (
       <p className="text-gray-400">
-        &copy; {2025}{` ${USER.name} ${USER.surname}`}. All rights reserved.
+        &copy; 2025 {`${USER.name} ${USER.surname}`}. All rights reserved.
       </p>
     );
   };
