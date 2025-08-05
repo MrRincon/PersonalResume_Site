@@ -41,15 +41,38 @@ function AboutMe({ USER, isLoading, hasError }) {
     if (eduLoading) return "Loading...";
     if (eduError || !EDUCATION) return "Error loading education";
 
+    const attachmentBlocks = EDUCATION.attachments?.map((attachment, index) => (
+      <React.Fragment key={index}>
+        {/* Vertical Separator (skip before first) */}
+        <div className="hidden md:block h-full w-px bg-gray-400 mx-4" />
+
+        <div className="flex flex-col items-start">
+          <span className="font-semibold mb-1">{attachment.filename}</span>
+          <a href={attachment.file} target="_blank" rel="noopener noreferrer">
+            <img
+              src={attachment.file}
+              alt={attachment.filename}
+              className="max-w-[100px] h-auto border border-gray-300 rounded shadow object-contain"
+            />
+          </a>
+        </div>
+      </React.Fragment>
+    ));
+
     return (
-      <>
-        <span className="font-medium">{EDUCATION.qualification}</span><br />
-        Grade: {EDUCATION.grade}<br />
-        Achieved: {EDUCATION.achieved}<br />
-        Institute: {EDUCATION.institute}
-      </>
+      <div className="flex flex-col md:flex-row md:items-start mt-4 md:mt-0">
+        <div className="flex flex-col mb-4 md:mb-0">
+          <span className="font-medium">{EDUCATION.qualification}</span><br />
+          Grade: {EDUCATION.grade}<br />
+          Achieved: {EDUCATION.achieved}<br />
+          Institute: {EDUCATION.institute}
+        </div>
+        <div className="flex flex-col md:flex-row md:items-start md:ml-8">
+          {attachmentBlocks}
+        </div>
+      </div>
     );
-  }; 
+  };
 
   return (
     <div className="bg-black text-white py-20" id="aboutme&education">
@@ -66,12 +89,12 @@ function AboutMe({ USER, isLoading, hasError }) {
               {isLoading
                 ? "Loading..."
                 : hasError
-                ? "Error loading owner."
-                : `${USER.aboutme.header} ${USER.aboutme.objective}`}
+                  ? "Error loading owner."
+                  : `${USER.aboutme.header} ${USER.aboutme.objective}`}
             </p>
             <div className="mt-8">
               <h3 className="text-2xl font-semibold mb-2">Education</h3>
-              <p className="text-lg">{renderEducation()}</p>
+              <div className="text-lg">{renderEducation()}</div>
             </div>
           </div>
         </div>

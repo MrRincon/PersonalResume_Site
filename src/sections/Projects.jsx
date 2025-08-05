@@ -11,7 +11,6 @@ function Projects({ USER }) {
 
     fetch(`https://personalresume-server.onrender.com/Projects/${USER._id}`)
       .then((res) => {
-        console.log(res);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })
@@ -87,13 +86,6 @@ function Projects({ USER }) {
                   </a>
                 )}
               </div>
-
-              {/* <button
-                disabled
-                className="bg-gray-600 text-white px-4 py-2 rounded-full opacity-50 cursor-not-allowed"
-              >
-                See Skills Achieved (Coming Soon)
-              </button> */}
             </div>
           ))}
         </div>

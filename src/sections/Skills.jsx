@@ -11,7 +11,6 @@ function Skills({ USER }) {
 
     fetch(`https://personalresume-server.onrender.com/Skills/${USER._id}`)
       .then((res) => {
-        console.log(res);
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
       })
@@ -72,7 +71,7 @@ function Skills({ USER }) {
                 </h3>
                 <ul className="space-y-1 text-sm text-gray-200 mb-4">
                   {noSubtype.map((skill) => (
-                    <li key={skill.id} className="flex items-center gap-2">
+                    <li key={skill._id} className="flex items-center gap-2">
                       {/* {skill.img?.src && (
                         <img
                           src={skill.img.src}
@@ -91,7 +90,7 @@ function Skills({ USER }) {
                     </h4>
                     <ul className="space-y-1 text-sm text-gray-200">
                       {subSkills.map((skill) => (
-                        <li key={skill.id} className="flex items-center gap-2">
+                        <li key={skill._id} className="flex items-center gap-2">
                           {/* {skill.img?.src && (
                             <img
                               src={skill.img.src}
