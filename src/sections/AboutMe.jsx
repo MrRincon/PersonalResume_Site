@@ -43,12 +43,13 @@ function AboutMe({ USER, isLoading, hasError }) {
 
     const attachmentBlocks = EDUCATION.attachments?.map((attachment, index) => (
       <React.Fragment key={index}>
-        {/* Vertical Separator (skip before first) */}
         <div className="hidden md:block h-full w-px bg-gray-400 mx-4" />
 
         <div className="flex flex-col items-start">
-          <span className="font-semibold mb-1">{attachment.filename}</span>
-          <a href={attachment.file} target="_blank" rel="noopener noreferrer">
+          <a href={attachment.link} target="_blank" rel="noopener noreferrer" className="font-semibold mb-1 hover:text-blue-400">
+            {attachment.filename}
+          </a>
+          <a href={attachment.link} target="_blank" rel="noopener noreferrer">
             <img
               src={attachment.file}
               alt={attachment.filename}
