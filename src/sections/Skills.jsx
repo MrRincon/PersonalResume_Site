@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function Skills({ USER }) {
-
   const [SKILLS, setSkills] = useState([]);
   const [SkillsLoading, setSkillsLoading] = useState(true);
   const [SkillsError, setSkillsError] = useState(false);
@@ -37,6 +36,26 @@ function Skills({ USER }) {
     return accumulator;
   }, {});
 
+  const priorityOrder = [
+    "Artificial Intelligence & Tools",
+    "Web Development & Frameworks",
+    "Cloud Platforms & Hosting",
+    "Programming Languages",
+    "Databases",
+    "Operating Systems"
+  ];
+
+  // Sorting groupedSkills according to priorityOrder
+  const sortedGroupedSkills = Object.entries(groupedSkills).sort(([a], [b]) => {
+    const aIndex = priorityOrder.indexOf(a);
+    const bIndex = priorityOrder.indexOf(b);
+
+    if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+    if (aIndex === -1) return 1;  
+    if (bIndex === -1) return -1; 
+    return aIndex - bIndex;
+  });
+
   const groupByValidSubtype = (skills) => {
     const withSubtype = {};
     const noSubtype = [];
@@ -58,7 +77,7 @@ function Skills({ USER }) {
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <h2 className="text-4xl font-bold text-center mb-12">My Skills</h2>
         <div className="flex overflow-x-auto space-x-6 pb-4 px-2 snap-x snap-mandatory">
-          {Object.entries(groupedSkills).map(([type, skills]) => {
+          {sortedGroupedSkills.map(([type, skills]) => {
             const { withSubtype, noSubtype } = groupByValidSubtype(skills);
 
             return (
@@ -72,13 +91,6 @@ function Skills({ USER }) {
                 <ul className="space-y-1 text-sm text-gray-200 mb-4">
                   {noSubtype.map((skill) => (
                     <li key={skill._id} className="flex items-center gap-2">
-                      {/* {skill.img?.src && (
-                        <img
-                          src={skill.img.src}
-                          alt={skill.img.alt || skill.skill}
-                          className="w-5 h-5 object-contain"
-                        />
-                      )} */}
                       <span>{skill.skill}</span>
                     </li>
                   ))}
@@ -91,13 +103,6 @@ function Skills({ USER }) {
                     <ul className="space-y-1 text-sm text-gray-200">
                       {subSkills.map((skill) => (
                         <li key={skill._id} className="flex items-center gap-2">
-                          {/* {skill.img?.src && (
-                            <img
-                              src={skill.img.src}
-                              alt={skill.img.alt || skill.skill}
-                              className="w-5 h-5 object-contain"
-                            />
-                          )} */}
                           <span>{skill.skill}</span>
                         </li>
                       ))}
@@ -111,6 +116,6 @@ function Skills({ USER }) {
       </div>
     </div>
   );
-};
+}
 
 export default Skills;
