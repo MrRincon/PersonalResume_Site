@@ -7,7 +7,7 @@ function Projects({ USER }) {
   const [ProjectsError, setProjectsError] = useState(false);
 
   useEffect(() => {
-    if (!USER) return;
+    if (!USER?._id) return;
 
     fetch(`https://personalresume-server.onrender.com/Projects/${USER._id}`)
       .then((res) => {
@@ -15,8 +15,12 @@ function Projects({ USER }) {
         return res.json();
       })
       .then((json) => {
-        if (json.length === 0);
-        console.warn(`No projects received from the server.`);
+        if (!Array.isArray(json) || json.length === 0) {
+          console.warn(`No projects received from the server.`);
+          setProjects([]);
+          setProjectsError(false);
+          return;
+        }
         setProjects(json);
         setProjectsError(false);
       })

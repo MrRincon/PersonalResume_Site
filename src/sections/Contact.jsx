@@ -99,7 +99,10 @@ function Contact({ USER }) {
                   Your Name
                 </label>
                 <input
+                  id="name"
+                  name="name"
                   type="text"
+                  autoComplete="name"
                   className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
                   placeholder="Enter Your Full Name"
                   value={name}
@@ -112,7 +115,10 @@ function Contact({ USER }) {
                   Email
                 </label>
                 <input
+                  id="email"
+                  name="email"
                   type="text"
+                  autoComplete="email"
                   className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
                   placeholder="Enter Your Email"
                   value={email}
@@ -125,6 +131,8 @@ function Contact({ USER }) {
                   Message
                 </label>
                 <textarea
+                  id="message"
+                  name="message"
                   className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
                   rows="5"
                   placeholder="Enter Your Message"
