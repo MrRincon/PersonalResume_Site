@@ -49,7 +49,7 @@ function Contact({ USER }) {
     }
     
     try {
-      const response = await fetch("https://personalresume-server.onrender.com/SendNewMessage", {
+      const response = await fetch("https://personal-projects-server-p6x4.onrender.com/SendNewMessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

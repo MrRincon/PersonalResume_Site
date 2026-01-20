@@ -9,7 +9,7 @@ function Projects({ USER }) {
   useEffect(() => {
     if (!USER?._id) return;
 
-    fetch(`https://personalresume-server.onrender.com/Projects/${USER._id}`)
+    fetch(`https://personal-projects-server-p6x4.onrender.com/Projects/${USER._id}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();

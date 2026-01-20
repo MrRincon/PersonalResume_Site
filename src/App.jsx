@@ -15,7 +15,7 @@ function App() {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    fetch("https://personalresume-server.onrender.com/Owner")
+    fetch("https://personal-projects-server-p6x4.onrender.com/Owner")
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();

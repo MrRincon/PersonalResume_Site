@@ -11,7 +11,7 @@ function AboutMe({ USER, isLoading, hasError }) {
   useEffect(() => {
     if (!USER) return;
 
-    fetch(`https://personalresume-server.onrender.com/Education/${USER.education[0]}`)
+    fetch(`https://personal-projects-server-p6x4.onrender.com/Education/${USER.education[0]}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();

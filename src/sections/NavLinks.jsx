@@ -18,7 +18,7 @@ function NavLinks({ USER, theme }) {
   useEffect(() => {
     if (!USER) return;
 
-    fetch(`https://personalresume-server.onrender.com/Links/${USER._id}`)
+    fetch(`https://personal-projects-server-p6x4.onrender.com/Links/${USER._id}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.json();
